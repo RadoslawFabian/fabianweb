@@ -1,45 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Pizza Menu | Fabian Bakery & Pizza</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pizza Menu - Fabian Bakery & Pizza</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fffaf0;
+      color: #3b2e2a;
+    }
+    .navbar {
+      background-color: #e5b900;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #c99700;
+    }
+    .navbar-left h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #3b2e2a;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #3b2e2a;
+      background: #fceca7;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      background-color: #d79b00;
+      color: white;
+    }
+    .cart-icon {
+      position: relative;
+      background: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
+      color: #3b2e2a;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      text-decoration: none;
+    }
+    .cart-count {
+      background: red;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 0.8rem;
+      position: absolute;
+      top: -8px;
+      right: -8px;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+    .menu-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .pizza-card {
+      position: relative;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      text-align: center;
+    }
+    .pizza-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    .pizza-info {
+      padding: 1rem;
+    }
+    .pizza-name {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    .pizza-price {
+      color: #cc7a00;
+      margin-top: 0.3rem;
+      font-weight: bold;
+    }
+    .pizza-hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .pizza-card:hover .pizza-hover {
+      opacity: 1;
+    }
+    .pizza-desc {
+      font-size: 0.9rem;
+      color: #5c4c3f;
+      margin-bottom: 0.7rem;
+    }
+    .add-btn {
+      background-color: #e6b800;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #f5e4b6;
+      font-size: 0.9rem;
+      color: #665544;
+    }
+    footer a {
+      color: #3b2e2a;
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
+  <div class="navbar">
+    <div class="navbar-left">
+      <h1>Fabian Bakery & Pizza</h1>
+    </div>
+    <div class="nav-links">
+      <a href="pizza.html" class="active">Pizza</a>
+      <a href="sandwiches.html">Sandwiches</a>
+      <a href="pastry.html">Pastry</a>
+      <a href="breads.html">Breads</a>
+      <a href="desserts.html">Desserts</a>
+      <a href="drinks.html">Drinks</a>
+    </div>
+    <a href="cart.html" class="cart-icon">🛒 Cart <span id="cart-count" class="cart-count">0</span></a>
+  </div>
+
   <header>
-    <h1>Fabian Bakery & Pizza</h1>
-    <p>Real pizza. Honest bread. Handmade in Holyhead.</p>
+    <h2>Pizza Menu</h2>
+    <p>Choose your favourite. Handmade. Fresh. Delicious.</p>
   </header>
 
-  <nav>
-    <a href="pizza.html">Pizza</a>
-    <a href="sandwiches.html">Sandwiches</a>
-    <a href="drinks.html">Drinks</a>
-    <a href="desserts.html">Desserts</a>
-    <a href="breads.html">Breads</a>
-    <a href="pastries.html">Pastries</a>
-    <a href="main.html">Home</a>
-  </nav>
-
-  <main>
-    <h2>Pizza Menu</h2>
-    <ul class="menu-list">
-      <li><span>Margherita</span><span>£10.00</span></li>
-      <li><span>Pepperoni</span><span>£12.00</span></li>
-      <li><span>Hawaiian</span><span>£12.00</span></li>
-      <li><span>Veggie Supreme</span><span>£12.00</span></li>
-      <li><span>BBQ Chicken</span><span>£12.00</span></li>
-      <li><span>Meat Feast</span><span>£13.00</span></li>
-      <li><span>Four Cheese</span><span>£12.00</span></li>
-      <li><span>Spicy Veg</span><span>£12.00</span></li>
-      <li><span>Tuna & Onion</span><span>£12.00</span></li>
-      <li><span>Create Your Own</span><span>£13.00</span></li>
-    </ul>
-  </main>
+  <section class="menu-container" id="pizzaMenu"></section>
 
   <footer>
-    &copy; 2025 Fabian Bakery & Pizza | All rights reserved
+    <p>&copy; 2025 Fabian Bakery & Pizza | Follow us on
+      <a href="https://www.instagram.com/" target="_blank">Instagram</a> &
+      <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+    </p>
   </footer>
+
+  <script>
+    const pizzas = [
+      {name: "Margherita", price: 10.00, desc: "Tomato sauce, mozzarella, basil", img: "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_960_720.jpg"},
+      {name: "Pepperoni", price: 12.00, desc: "Tomato sauce, mozzarella, spicy pepperoni", img: "https://cdn.pixabay.com/photo/2020/11/19/19/51/pizza-5758584_960_720.jpg"},
+      {name: "Veggie Supreme", price: 12.00, desc: "Mushrooms, peppers, onions, sweetcorn, olives", img: "https://cdn.pixabay.com/photo/2016/11/21/15/53/pizza-1846465_960_720.jpg"},
+      {name: "BBQ Chicken", price: 12.00, desc: "BBQ sauce, grilled chicken, onions, mozzarella", img: "https://cdn.pixabay.com/photo/2014/07/08/12/36/pizza-386717_960_720.jpg"},
+      {name: "Meat Feast", price: 13.00, desc: "Pepperoni, ham, sausage, bacon", img: "https://cdn.pixabay.com/photo/2016/03/05/19/02/pizza-1239075_960_720.jpg"},
+      {name: "Hawaiian", price: 12.00, desc: "Tomato sauce, mozzarella, ham, pineapple", img: "https://cdn.pixabay.com/photo/2020/08/11/15/24/pizza-5479362_960_720.jpg"},
+      {name: "Spicy Veg", price: 12.00, desc: "Jalapeños, chili flakes, sweetcorn, red onion", img: "https://cdn.pixabay.com/photo/2017/01/22/20/00/pizza-2000614_960_720.jpg"},
+      {name: "Tuna & Onion", price: 12.00, desc: "Tuna chunks, red onions, oregano", img: "https://cdn.pixabay.com/photo/2015/04/08/13/13/food-712665_960_720.jpg"},
+      {name: "Create Your Own", price: 13.00, desc: "Choose 4 toppings + sauce base (tomato or BBQ)", img: "https://cdn.pixabay.com/photo/2021/03/22/08/55/pizza-6113640_960_720.jpg"}
+    ];
+
+    const container = document.getElementById("pizzaMenu");
+    const cartCount = document.getElementById("cart-count");
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cartCount.textContent = cart.length;
+    }
+
+    function addToCart(name, price, img) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name, price, img });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
+    }
+
+    pizzas.forEach(pizza => {
+      const card = document.createElement("div");
+      card.className = "pizza-card";
+      card.innerHTML = `
+        <img src="${pizza.img}" alt="${pizza.name}">
+        <div class="pizza-hover">
+          <div class="pizza-desc">${pizza.desc}</div>
+          <button class="add-btn" onclick="addToCart('${pizza.name}', ${pizza.price}, '${pizza.img}')">Add to Cart</button>
+        </div>
+        <div class="pizza-info">
+          <div class="pizza-name">${pizza.name}</div>
+          <div class="pizza-price">£${pizza.price.toFixed(2)}</div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+
+    updateCartCount();
+  </script>
 </body>
 </html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - Fabian Bakery & Pizza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf0;
+      color: #3b2e2a;
+      margin: 0;
+      padding: 0;
+    }
+    .cart-container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    .cart-container h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background-color: #ffffff;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .cart-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .cart-info {
+      flex-grow: 1;
+    }
+    .cart-info h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    .cart-info p {
+      margin: 0.3rem 0;
+      font-weight: bold;
+      color: #cc7a00;
+    }
+    .remove-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .total {
+      text-align: right;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    .note {
+      text-align: right;
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    .bottom-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 3rem;
+    }
+    .back-btn, .payment-btn {
+      font-size: 1rem;
+      padding: 0.8rem 1.5rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .back-btn {
+      background-color: #e6b800;
+      color: white;
+    }
+    .payment-btn {
+      background-color: #ccc;
+      color: #444;
+      pointer-events: auto;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #f5e4b6;
+      font-size: 0.9rem;
+      color: #665544;
+    }
+  </style>
+</head>
+<body>
+  <div class="cart-container" id="cart-container">
+    <h2>Your Cart</h2>
+    <!-- Items will be injected here -->
+    <div class="bottom-buttons">
+      <button class="back-btn" onclick="location.href='pizza.html'">⬅ Back to Menu</button>
+      <button class="payment-btn">Proceed to Payment</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Fabian Bakery & Pizza | Follow us on <a href="#">Instagram</a> & <a href="#">Facebook</a></p>
+  </footer>
+
+  <script>
+    const cartContainer = document.getElementById('cart-container');
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function renderCart() {
+      const existingItems = document.querySelectorAll('.cart-item, .total, .note');
+      existingItems.forEach(el => el.remove());
+
+      if (cart.length === 0) {
+        cartContainer.innerHTML = '<h2>Your Cart</h2><p style="text-align:center;">Your cart is empty.</p>';
+        return;
+      }
+
+      let total = 0;
+      cart.forEach((item, index) => {
+        total += item.price;
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+          <img src="${item.img}" alt="${item.name}" />
+          <div class="cart-info">
+            <h3>${item.name}</h3>
+            <p>£${item.price.toFixed(2)}</p>
+          </div>
+          <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+        `;
+        cartContainer.insertBefore(div, document.querySelector('.bottom-buttons'));
+      });
+
+      if (total < 20) {
+        const deliveryNote = document.createElement('div');
+        deliveryNote.className = 'note';
+        deliveryNote.textContent = '+ £3 delivery charge for orders under £20';
+        cartContainer.insertBefore(deliveryNote, document.querySelector('.bottom-buttons'));
+        total += 3;
+      }
+
+      const totalDiv = document.createElement('div');
+      totalDiv.className = 'total';
+      totalDiv.textContent = `Total: £${total.toFixed(2)}`;
+      cartContainer.insertBefore(totalDiv, document.querySelector('.bottom-buttons'));
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>
