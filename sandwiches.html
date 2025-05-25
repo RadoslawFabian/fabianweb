@@ -2,43 +2,245 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sandwiches | Fabian Bakery & Pizza</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sandwiches Menu - Fabian Bakery & Pizza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf0;
+      color: #3b2e2a;
+    }
+    .navbar {
+      background-color: #e5b900;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 2px solid #c99700;
+    }
+    .navbar-left {
+      position: absolute;
+      left: 2rem;
+    }
+    .navbar-left h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #3b2e2a;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #3b2e2a;
+      background: #fceca7;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      background-color: #d79b00;
+      color: white;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+    .notice {
+      text-align: center;
+      color: darkred;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+    .menu-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .sandwich-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .option-card {
+      position: relative;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      overflow: hidden;
+    }
+    .option-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .option-card h3 {
+      margin: 0.5rem 0 0.2rem;
+    }
+    .option-card p {
+      margin-bottom: 0.8rem;
+      font-weight: bold;
+      color: #cc7a00;
+    }
+    .hover-label {
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #3b2e2a;
+      transition: bottom 0.3s ease;
+    }
+    .option-card:hover .hover-label {
+      bottom: 0;
+    }
+    .ingredients {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .ingredients h4 {
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    .ingredients ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #f5e4b6;
+      font-size: 0.9rem;
+      color: #665544;
+    }
+    footer a {
+      color: #3b2e2a;
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
+  <div class="navbar">
+    <div class="navbar-left">
+      <h1>Fabian Bakery & Pizza</h1>
+    </div>
+    <div class="nav-links">
+      <a href="pizza.html">Pizza</a>
+      <a href="sandwiches.html" class="active">Sandwiches</a>
+      <a href="pastry.html">Pastry</a>
+      <a href="breads.html">Breads</a>
+      <a href="desserts.html">Desserts</a>
+      <a href="drinks.html">Drinks</a>
+    </div>
+  </div>
+
   <header>
-    <h1>Fabian Bakery & Pizza</h1>
-    <p>Handmade sandwiches crafted fresh daily in Holyhead.</p>
+    <h2>Sandwiches Menu</h2>
+    <p>Build it your way. Fresh. Local. Delicious.</p>
   </header>
 
-  <nav>
-    <a href="pizza.html">Pizza</a>
-    <a href="sandwiches.html">Sandwiches</a>
-    <a href="drinks.html">Drinks</a>
-    <a href="desserts.html">Desserts</a>
-    <a href="breads.html">Breads</a>
-    <a href="pastries.html">Pastries</a>
-    <a href="main.html">Home</a>
-  </nav>
+  <div class="notice">
+    Sandwiches are available for in-store purchase only – not available for online ordering.
+  </div>
 
-  <main>
-    <h2>Sandwiches & Panini</h2>
-    <ul class="menu-list">
-      <li><span>Standard Sandwich</span><span>£3.00</span></li>
-      <li><span>Baguette (Half)</span><span>£4.00</span></li>
-      <li><span>Footlong Baguette</span><span>£6.00</span></li>
-      <li><span>Panini (Custom)</span><span>£4.50</span></li>
-      <li><span>Chicken Caesar Sandwich</span><span>£5.50</span></li>
-      <li><span>Egg Mayo & Cress</span><span>£3.50</span></li>
-      <li><span>Ham & Cheese Melt</span><span>£4.80</span></li>
-      <li><span>Tuna Mayo & Sweetcorn</span><span>£4.20</span></li>
-      <li><span>Grilled Veggie Sandwich</span><span>£4.00</span></li>
-    </ul>
-  </main>
+  <div class="menu-section">
+    <div class="sandwich-options">
+      <div class="option-card">
+        <img src="https://cdn.pixabay.com/photo/2017/02/01/13/52/panini-2025055_960_720.jpg" alt="Panini">
+        <div class="hover-label">Create Your Panini</div>
+        <h3>Panini</h3>
+        <p>£4.50</p>
+      </div>
+      <div class="option-card">
+        <img src="https://cdn.pixabay.com/photo/2015/06/08/15/11/baguette-801843_960_720.jpg" alt="Baguette">
+        <div class="hover-label">Create Your Baguette</div>
+        <h3>Baguette</h3>
+        <p>£7.00 (30cm) / £4.00 (15cm)</p>
+      </div>
+      <div class="option-card">
+        <img src="https://cdn.pixabay.com/photo/2015/04/10/00/41/sandwich-715270_960_720.jpg" alt="Sandwich">
+        <div class="hover-label">Create Your Sandwich</div>
+        <h3>Sandwich</h3>
+        <p>£4.00</p>
+      </div>
+      <div class="option-card">
+        <img src="https://cdn.pixabay.com/photo/2020/05/28/13/08/burger-5233219_960_720.jpg" alt="Bap">
+        <div class="hover-label">Create Your Bap</div>
+        <h3>Bap</h3>
+        <p>£3.50</p>
+      </div>
+    </div>
+
+    <div class="ingredients">
+      <div>
+        <h4>Meats (Choose up to 2)</h4>
+        <ul>
+          <li>Honey Ham</li>
+          <li>Smoked Ham</li>
+          <li>Turkey</li>
+          <li>Chicken</li>
+          <li>Bacon</li>
+          <li>Sausage</li>
+          <li>Black Pudding</li>
+          <li>Pulled Pork</li>
+          <li>Salami</li>
+          <li>Pepperoni</li>
+          <li>Tuna Mayo</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Vegetables</h4>
+        <ul>
+          <li>Corn</li>
+          <li>Onion</li>
+          <li>Olives</li>
+          <li>Crispy Onion</li>
+          <li>Mixed Peppers</li>
+          <li>Iceberg Lettuce</li>
+          <li>Pickles</li>
+          <li>Cucumber</li>
+          <li>Tomato</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Cheeses</h4>
+        <ul>
+          <li>Goat Cheese</li>
+          <li>Mozzarella</li>
+          <li>Cheddar Mix</li>
+        </ul>
+
+        <h4>Sauces</h4>
+        <ul>
+          <li>Homemade Garlic Sauce</li>
+          <li>Brown Sauce</li>
+          <li>Sweet Chilli Mayo</li>
+          <li>Chilli Sauce</li>
+          <li>Olive Oil</li>
+          <li>Chilli Oil</li>
+          <li>Cheese Sauce</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
   <footer>
-    &copy; 2025 Fabian Bakery & Pizza | All rights reserved
+    <p>&copy; 2025 Fabian Bakery & Pizza | Follow us on
+      <a href="https://www.instagram.com/" target="_blank">Instagram</a> &
+      <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+    </p>
   </footer>
 </body>
 </html>
