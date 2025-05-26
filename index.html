@@ -3,79 +3,272 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to Fabian Bakery & Pizza</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <title>Fabian Bakery & Pizza - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom, #fdfcf8, #f7e8d0);
-      background-repeat: no-repeat;
-      background-size: cover;
-      height: 100vh;
+      background-color: #fffaf0;
+      color: #3b2e2a;
+    }
+    .navbar {
+      background-color: #e5b900;
+      padding: 1rem 2rem;
       display: flex;
-      align-items: center;
       justify-content: center;
-      flex-direction: column;
-      text-align: center;
+      align-items: center;
+      border-bottom: 2px solid #c99700;
+      position: relative;
     }
-
-    h1 {
+    .navbar-left {
+      position: absolute;
+      left: 2rem;
+    }
+    .navbar-left h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      color: #3e2f1c;
+      font-size: 1.8rem;
+      color: #3b2e2a;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #3b2e2a;
+      background: #fceca7;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      background-color: #d79b00;
+      color: white;
+    }
+    header {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      background-color: #f8e9c4;
+    }
+    header h2 {
+      font-size: 2.2rem;
+      font-family: 'Playfair Display', serif;
+    }
+    header p {
+      font-size: 1.1rem;
       margin-top: 1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
-
-    .tagline {
-      font-style: italic;
-      color: #7b4f1c;
-      margin-bottom: 2rem;
+    .hero {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
     }
-
-    .enter-button {
+    .hero-box {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1rem;
+      width: 220px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .hero-box:hover {
+      transform: translateY(-5px);
+    }
+    .hero-box img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .hero-box h3 {
+      margin-top: 0.8rem;
+      font-size: 1.1rem;
+    }
+    .hero-box a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.4rem 0.8rem;
       background-color: #e6b800;
       color: white;
-      font-weight: bold;
-      font-size: 1.1rem;
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 6px;
-      cursor: pointer;
+      border-radius: 5px;
       text-decoration: none;
-      transition: background-color 0.3s ease;
+      font-weight: bold;
     }
-
-    .enter-button:hover {
-      background-color: #cfa700;
+    .content-section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
-
-    img {
-      max-width: 260px;
-      border-radius: 50%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    .content-section section {
+      background-color: #fff6dc;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
-
+    .content-section h2 {
+      border-bottom: 2px solid #e6b800;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .gallery {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .gallery img {
+      width: 150px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .special-offers ul, .reviews ul {
+      padding-left: 1.2rem;
+    }
+    .special-offers li, .reviews li {
+      margin: 0.6rem 0;
+    }
+    iframe {
+      width: 100%;
+      max-width: 600px;
+      height: 300px;
+      border: 0;
+      margin-top: 1rem;
+    }
     footer {
-      position: absolute;
-      bottom: 20px;
+      text-align: center;
+      padding: 2rem;
+      background-color: #f5e4b6;
       font-size: 0.9rem;
-      color: #7b4f1c;
+      color: #665544;
+    }
+    .social-icons {
+      margin-top: 1rem;
+    }
+    .social-icons a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      color: #3e2f1c;
+    }
+    .social-icons a:hover {
+      color: #c18f00;
     }
   </style>
 </head>
 <body>
+  <div class="navbar">
+    <div class="navbar-left">
+      <h1>Fabian Bakery & Pizza</h1>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="pizza.html">Pizza</a>
+      <a href="sandwiches.html">Sandwiches</a>
+      <a href="pastry.html">Pastry</a>
+      <a href="breads.html">Breads</a>
+      <a href="desserts.html">Desserts</a>
+      <a href="drinks.html">Drinks</a>
+      <a href="welcome.html">Welcome</a>
+    </div>
+  </div>
 
-  <img src="images/LogoFabian.png" alt="Fabian Bakery Logo">
+  <header>
+    <h2>Welcome to Fabian Bakery & Pizza</h2>
+    <p>Handmade pizza & bakery goods. Fresh every day in Holyhead.</p>
+  </header>
 
-  <h1>Welcome to Fabian Bakery & Pizza</h1>
-  <p class="tagline">Real pizza. Honest bread. Handmade in Holyhead.</p>
+  <section class="hero">
+    <div class="hero-box">
+      <img src="https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_960_720.jpg" alt="Pizza">
+      <h3>Our Pizzas</h3>
+      <a href="pizza.html">See Menu</a>
+    </div>
+    <div class="hero-box">
+      <img src="https://cdn.pixabay.com/photo/2017/02/01/13/52/panini-2025055_960_720.jpg" alt="Sandwiches">
+      <h3>Sandwiches</h3>
+      <a href="sandwiches.html">See Menu</a>
+    </div>
+    <div class="hero-box">
+      <img src="https://cdn.pixabay.com/photo/2021/03/14/07/28/sausage-roll-6093046_960_720.jpg" alt="Pastry">
+      <h3>Pastry</h3>
+      <a href="pastry.html">See Menu</a>
+    </div>
+    <div class="hero-box">
+      <img src="https://cdn.pixabay.com/photo/2016/06/09/15/24/bread-1449530_960_720.jpg" alt="Breads">
+      <h3>Fresh Breads</h3>
+      <a href="breads.html">See Menu</a>
+    </div>
+    <div class="hero-box">
+      <img src="https://cdn.pixabay.com/photo/2017/05/07/08/56/cake-2290398_960_720.jpg" alt="Desserts">
+      <h3>Desserts</h3>
+      <a href="desserts.html">See Menu</a>
+    </div>
+    <div class="hero-box">
+      <img src="https://cdn.pixabay.com/photo/2017/06/02/18/24/beverage-2360838_960_720.jpg" alt="Drinks">
+      <h3>Drinks</h3>
+      <a href="drinks.html">See Menu</a>
+    </div>
+  </section>
 
-  <a href="main.html" class="enter-button">Enter Website</a>
+  <div class="content-section">
+    <section>
+      <h2>Our Story</h2>
+      <p>
+        With over 12 years of culinary experience, our head chef founded Fabian Bakery & Pizza to bring authentic Italian flavors and natural artisan bread to Holyhead.
+        Every dough is handmade daily, using traditional recipes passed down through generations. We believe in real ingredients, passion, and creating a warm local place for families and friends.
+      </p>
+    </section>
+
+    <section class="special-offers">
+      <h2>Special Offers</h2>
+      <ul>
+        <li><strong>2 Large Pizzas + 2 Drinks</strong> – Only £25.00</li>
+        <li><strong>Panini + Cake + Coffee</strong> – £7.50</li>
+        <li><strong>2 Artisan Breads + Butter Pack</strong> – £5.00</li>
+      </ul>
+    </section>
+
+    <section class="reviews">
+      <h2>Customer Reviews</h2>
+      <ul>
+        <li>"Absolutely the best pizza in town! ⭐⭐⭐⭐⭐"</li>
+        <li>"Bread tastes like it's from another time. Pure magic. ⭐⭐⭐⭐⭐"</li>
+        <li>"Friendly team, fresh ingredients. We'll be back! ⭐⭐⭐⭐⭐"</li>
+      </ul>
+    </section>
+
+    <section class="gallery">
+      <h2>Gallery</h2>
+      <img src="images/pizza.jpg" alt="Pizza">
+      <img src="images/bread.jpg" alt="Bread">
+      <img src="images/dessert.jpg" alt="Dessert">
+    </section>
+
+    <section>
+      <h2>Visit Us</h2>
+      <p><strong>Address:</strong> 5 Llainfain, Holyhead LL65 1DS</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2421.6966511394696!2d-4.633054684215774!3d53.30668197997679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486508f33000ab2b%3A0x2e29e19b186e01f7!2sHolyhead%20LL65%201DS%2C%20UK!5e0!3m2!1sen!2suk!4v1684192200000" allowfullscreen=""></iframe>
+    </section>
+  </div>
 
   <footer>
-    &copy; 2025 Fabian Bakery & Pizza
+    <p>&copy; 2025 Fabian Bakery & Pizza | All rights reserved</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=61576720432845" target="_blank">Facebook</a> |
+      <a href="https://www.instagram.com/fabian.bakery.pizza/" target="_blank">Instagram</a>
+    </div>
   </footer>
-
 </body>
 </html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pastry Menu - Fabian Bakery & Pizza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf0;
+      color: #3b2e2a;
+    }
+    .navbar {
+      background-color: #e5b900;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 2px solid #c99700;
+      position: relative;
+    }
+    .navbar-left {
+      position: absolute;
+      left: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .navbar-left h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #3b2e2a;
+    }
+    .navbar-left a {
+      text-decoration: none;
+      background-color: #fceca7;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-weight: bold;
+      color: #3b2e2a;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #3b2e2a;
+      background: #fceca7;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      background-color: #d79b00;
+      color: white;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+    .menu-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .menu-category {
+      margin-bottom: 2rem;
+    }
+    .menu-category h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #e5b900;
+      padding-bottom: 0.5rem;
+    }
+    .pastry-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    .option-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      overflow: hidden;
+    }
+    .option-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .option-card h4 {
+      margin: 0.5rem 0 0.2rem;
+    }
+    .option-card p {
+      margin-bottom: 0.8rem;
+      font-weight: bold;
+      color: #cc7a00;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #f5e4b6;
+      font-size: 0.9rem;
+      color: #665544;
+    }
+    footer a {
+      color: #3b2e2a;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-left">
+      <a href="index.html">Home</a>
+      <h1>Fabian Bakery & Pizza</h1>
+    </div>
+    <div class="nav-links">
+      <a href="pizza.html">Pizza</a>
+      <a href="sandwiches.html">Sandwiches</a>
+      <a href="pastry.html" class="active">Pastry</a>
+      <a href="breads.html">Breads</a>
+      <a href="desserts.html">Desserts</a>
+      <a href="drinks.html">Drinks</a>
+    </div>
+  </div>
+
+  <header>
+    <h2>Pastry Menu</h2>
+    <p>Freshly baked savoury and sweet pastries available daily.</p>
+  </header>
+
+
+  <div class="menu-section">
+    <div class="menu-category">
+      <h3>Savoury Pastries</h3>
+      <div class="pastry-options">
+        <div class="option-card">
+          <img src="https://cdn.pixabay.com/photo/2021/03/14/07/28/sausage-roll-6093046_960_720.jpg" alt="Sausage Roll">
+          <h4>Sausage Roll</h4>
+          <p>£2.50</p>
+        </div>
+        <div class="option-card">
+          <img src="https://cdn.pixabay.com/photo/2016/12/06/18/27/pie-1887335_960_720.jpg" alt="Steak Pie">
+          <h4>Steak Pie</h4>
+          <p>£3.20</p>
+        </div>
+        <div class="option-card">
+          <img src="https://cdn.pixabay.com/photo/2014/11/21/17/17/pie-540120_960_720.jpg" alt="Chicken & Mushroom Pie">
+          <h4>Chicken & Mushroom Pie</h4>
+          <p>£3.50</p>
+        </div>
+        <div class="option-card">
+          <img src="https://cdn.pixabay.com/photo/2015/11/03/09/46/pasty-1014121_960_720.jpg" alt="Cornish Pasty">
+          <h4>Cornish Pasty</h4>
+          <p>£3.00</p>
+        </div>
+        <div class="option-card">
+          <img src="https://cdn.pixabay.com/photo/2017/05/13/14/11/spinach-2314091_960_720.jpg" alt="Spinach & Feta Roll">
+          <h4>Spinach & Feta Roll</h4>
+          <p>£3.00</p>
+        </div>
+        <div class="option-card">
+          <img src="https://cdn.pixabay.com/photo/2018/06/07/22/54/lamb-3464866_960_720.jpg" alt="Lamb Pie">
+          <h4>Lamb Pie</h4>
+          <p>£3.80</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <h3>Sweet Pastries</h3>
+      <div class="pastry-options">
+        <div class="option-card">
+          <img src="https://cdn.pixabay.com/photo/2017/08/06/00/14/croissants-2587387_960_720.jpg" alt="Butter Croissant">
+          <h4>Butter Croissant</h4>
+          <p>£2.50</p>
+        </div>
+        <div class="option-card">
+          <img src="https://cdn.pixabay.com/photo/2016/11/23/15/33/chocolate-1853248_960_720.jpg" alt="Chocolate Croissant">
+          <h4>Chocolate Croissant</h4>
+          <p>£2.80</p>
+        </div>
+        <div class="option-card">
+          <img src="https://cdn.pixabay.com/photo/2020/11/03/17/05/cinnamon-rolls-5710654_960_720.jpg" alt="Cinnamon Roll">
+          <h4>Cinnamon Roll</h4>
+          <p>£3.00</p>
+        </div>
+        <div class="option-card">
+          <img src="https://cdn.pixabay.com/photo/2018/10/10/21/30/apple-strudel-3738986_960_720.jpg" alt="Apple Strudel">
+          <h4>Apple Strudel</h4>
+          <p>£3.50</p>
+        </div>
+        <div class="option-card">
+          <img src="https://cdn.pixabay.com/photo/2017/03/15/11/43/strawberry-2144337_960_720.jpg" alt="Strawberry Pie">
+          <h4>Strawberry Pie</h4>
+          <p>£3.60</p>
+        </div>
+        <div class="option-card">
+          <img src="https://cdn.pixabay.com/photo/2020/05/09/18/48/caramel-5149304_960_720.jpg" alt="Salted Caramel Pie">
+          <h4>Salted Caramel Pie</h4>
+          <p>£3.70</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Fabian Bakery & Pizza | Follow us on
+      <a href="https://www.instagram.com/" target="_blank">Instagram</a> &
+      <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+    </p>
+  </footer>
+</body>
+</html>

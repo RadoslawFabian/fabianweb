@@ -153,12 +153,14 @@
       <h1>Fabian Bakery & Pizza</h1>
     </div>
     <div class="nav-links">
+      <a href="index.html">Home</a>
       <a href="pizza.html" class="active">Pizza</a>
       <a href="sandwiches.html">Sandwiches</a>
       <a href="pastry.html">Pastry</a>
       <a href="breads.html">Breads</a>
       <a href="desserts.html">Desserts</a>
       <a href="drinks.html">Drinks</a>
+      <a href="welcome.html">Welcome</a>
     </div>
     <a href="cart.html" class="cart-icon">🛒 Cart <span id="cart-count" class="cart-count">0</span></a>
   </div>
@@ -178,51 +180,50 @@
   </footer>
 
   <script>
-    const pizzas = [
-      {name: "Margherita", price: 10.00, desc: "Tomato sauce, mozzarella, basil", img: "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_960_720.jpg"},
-      {name: "Pepperoni", price: 12.00, desc: "Tomato sauce, mozzarella, spicy pepperoni", img: "https://cdn.pixabay.com/photo/2020/11/19/19/51/pizza-5758584_960_720.jpg"},
-      {name: "Veggie Supreme", price: 12.00, desc: "Mushrooms, peppers, onions, sweetcorn, olives", img: "https://cdn.pixabay.com/photo/2016/11/21/15/53/pizza-1846465_960_720.jpg"},
-      {name: "BBQ Chicken", price: 12.00, desc: "BBQ sauce, grilled chicken, onions, mozzarella", img: "https://cdn.pixabay.com/photo/2014/07/08/12/36/pizza-386717_960_720.jpg"},
-      {name: "Meat Feast", price: 13.00, desc: "Pepperoni, ham, sausage, bacon", img: "https://cdn.pixabay.com/photo/2016/03/05/19/02/pizza-1239075_960_720.jpg"},
-      {name: "Hawaiian", price: 12.00, desc: "Tomato sauce, mozzarella, ham, pineapple", img: "https://cdn.pixabay.com/photo/2020/08/11/15/24/pizza-5479362_960_720.jpg"},
-      {name: "Spicy Veg", price: 12.00, desc: "Jalapeños, chili flakes, sweetcorn, red onion", img: "https://cdn.pixabay.com/photo/2017/01/22/20/00/pizza-2000614_960_720.jpg"},
-      {name: "Tuna & Onion", price: 12.00, desc: "Tuna chunks, red onions, oregano", img: "https://cdn.pixabay.com/photo/2015/04/08/13/13/food-712665_960_720.jpg"},
-      {name: "Create Your Own", price: 13.00, desc: "Choose 4 toppings + sauce base (tomato or BBQ)", img: "https://cdn.pixabay.com/photo/2021/03/22/08/55/pizza-6113640_960_720.jpg"}
-    ];
+  const pizzas = [
+    { name: "Margherita", price: 10.00, desc: "Tomato sauce, mozzarella, basil", img: "images/margherita.jpg" },
+    { name: "Pepperoni", price: 12.00, desc: "Tomato sauce, mozzarella, spicy pepperoni", img: "images/pepperoni.jpg" },
+    { name: "Veggie Supreme", price: 12.00, desc: "Mushrooms, peppers, onions, sweetcorn, olives", img: "images/vegfie.jpg" },
+    { name: "BBQ Chicken", price: 12.00, desc: "BBQ sauce, grilled chicken, onions, mozzarella", img: "images/bbqchicken.jpg" },
+    { name: "Meat Feast", price: 13.00, desc: "Pepperoni, ham, sausage, bacon", img: "images/meat.jpg" },
+    { name: "Hawaiian", price: 12.00, desc: "Tomato sauce, mozzarella, ham, pineapple", img: "images/hawaian.jpg" },
+    { name: "Spicy Veg", price: 12.00, desc: "Jalapeños, chili flakes, sweetcorn, red onion", img: "images/vegspice.jpg" },
+    { name: "Tuna & Onion", price: 12.00, desc: "Tuna chunks, red onions, oregano", img: "images/tuna.jpg" },
+    { name: "New York Style", price: 12.50, desc: "Classic thin crust with mozzarella and oregano", img: "images/new-york-style-pizza2.jpg" },
+    { name: "Create Your Own", price: 13.00, desc: "Choose 4 toppings + sauce base (tomato or BBQ)", img: "images/own.jpg" }
+  ];
 
-    const container = document.getElementById("pizzaMenu");
-    const cartCount = document.getElementById("cart-count");
+  const container = document.getElementById("pizzaMenu");
+  const cartCount = document.getElementById("cart-count");
 
-    function updateCartCount() {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cartCount.textContent = cart.length;
-    }
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cartCount.textContent = cart.length;
+  }
 
-    function addToCart(name, price, img) {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.push({ name, price, img });
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCartCount();
-    }
-
-    pizzas.forEach(pizza => {
-      const card = document.createElement("div");
-      card.className = "pizza-card";
-      card.innerHTML = `
-        <img src="${pizza.img}" alt="${pizza.name}">
-        <div class="pizza-hover">
-          <div class="pizza-desc">${pizza.desc}</div>
-          <button class="add-btn" onclick="addToCart('${pizza.name}', ${pizza.price}, '${pizza.img}')">Add to Cart</button>
-        </div>
-        <div class="pizza-info">
-          <div class="pizza-name">${pizza.name}</div>
-          <div class="pizza-price">£${pizza.price.toFixed(2)}</div>
-        </div>
-      `;
-      container.appendChild(card);
-    });
-
+  function addToCart(name, price, img) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ name, price, img });
+    localStorage.setItem('cart', JSON.stringify(cart));
     updateCartCount();
-  </script>
-</body>
-</html>
+  }
+
+  pizzas.forEach(pizza => {
+    const card = document.createElement("div");
+    card.className = "pizza-card";
+    card.innerHTML = `
+      <img src="${pizza.img}" alt="${pizza.name}">
+      <div class="pizza-hover">
+        <div class="pizza-desc">${pizza.desc}</div>
+        <button class="add-btn" onclick="addToCart('${pizza.name}', ${pizza.price}, '${pizza.img}')">Add to Cart</button>
+      </div>
+      <div class="pizza-info">
+        <div class="pizza-name">${pizza.name}</div>
+        <div class="pizza-price">£${pizza.price.toFixed(2)}</div>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+
+  updateCartCount();
+</script>

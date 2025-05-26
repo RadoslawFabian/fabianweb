@@ -1,43 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Desserts | Fabian Bakery & Pizza</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desserts - Fabian Bakery & Pizza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf0;
+      color: #3b2e2a;
+    }
+    .navbar {
+      background-color: #e5b900;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 2px solid #c99700;
+      position: relative;
+    }
+    .navbar-left {
+      position: absolute;
+      left: 2rem;
+    }
+    .navbar-left h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #3b2e2a;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #3b2e2a;
+      background: #fceca7;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      background-color: #d79b00;
+      color: white;
+    }
+    header {
+      text-align: center;
+      padding: 3rem 1rem 1rem;
+      background-color: #f8e9c4;
+    }
+    header h2 {
+      font-size: 2rem;
+      font-family: 'Playfair Display', serif;
+    }
+    .section {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .dessert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    .dessert-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .dessert-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .dessert-card h4 {
+      margin-top: 0.6rem;
+      font-size: 1.1rem;
+    }
+    .dessert-card p {
+      margin-top: 0.2rem;
+      font-weight: bold;
+      color: #c78c00;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #f5e4b6;
+      font-size: 0.9rem;
+      color: #665544;
+    }
+    .social-icons a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      color: #3e2f1c;
+    }
+  </style>
 </head>
 <body>
+  <div class="navbar">
+    <div class="navbar-left">
+      <h1>Fabian Bakery & Pizza</h1>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="pizza.html">Pizza</a>
+      <a href="sandwiches.html">Sandwiches</a>
+      <a href="pastry.html">Pastry</a>
+      <a href="breads.html">Breads</a>
+      <a href="desserts.html" class="active">Desserts</a>
+      <a href="drinks.html">Drinks</a>
+      
+    </div>
+  </div>
+
   <header>
-    <h1>Fabian Bakery & Pizza</h1>
-    <p>Homemade cakes, bakes, and sweet delights – baked fresh daily in Holyhead.</p>
+    <h2>Desserts Menu</h2>
+    <p>Sweeten your day with our homemade cakes, pies, and sweet bakery items.</p>
   </header>
 
-  <nav>
-    <a href="pizza.html">Pizza</a>
-    <a href="sandwiches.html">Sandwiches</a>
-    <a href="drinks.html">Drinks</a>
-    <a href="desserts.html">Desserts</a>
-    <a href="breads.html">Breads</a>
-    <a href="pastries.html">Pastries</a>
-    <a href="main.html">Home</a>
-  </nav>
-
-  <main>
-    <h2>Desserts & Sweets</h2>
-    <ul class="menu-list">
-      <li><span>Chocolate Brownie</span><span>£2.50</span></li>
-      <li><span>Apple Pie</span><span>£2.80</span></li>
-      <li><span>Lemon Drizzle Cake</span><span>£2.90</span></li>
-      <li><span>Classic Cheesecake</span><span>£3.00</span></li>
-      <li><span>Blueberry Muffin</span><span>£2.30</span></li>
-      <li><span>Butter Croissant</span><span>£2.20</span></li>
-      <li><span>Chocolate Chip Cookie</span><span>£1.50</span></li>
-      <li><span>Fruit Tart</span><span>£2.90</span></li>
-    </ul>
-  </main>
+  <div class="section">
+    <div class="dessert-grid">
+      <div class="dessert-card">
+        <img src="https://cdn.pixabay.com/photo/2017/05/07/08/56/cake-2290398_960_720.jpg" alt="Chocolate Cake">
+        <h4>Chocolate Fudge Cake</h4>
+        <p>£3.50</p>
+      </div>
+      <div class="dessert-card">
+        <img src="https://cdn.pixabay.com/photo/2017/06/09/22/30/cheesecake-2394062_960_720.jpg" alt="Cheesecake">
+        <h4>New York Cheesecake</h4>
+        <p>£3.80</p>
+      </div>
+      <div class="dessert-card">
+        <img src="https://cdn.pixabay.com/photo/2016/11/18/15/01/apple-pie-1835417_960_720.jpg" alt="Apple Pie">
+        <h4>Warm Apple Pie</h4>
+        <p>£3.20</p>
+      </div>
+      <div class="dessert-card">
+        <img src="https://cdn.pixabay.com/photo/2014/10/10/03/55/dessert-482258_960_720.jpg" alt="Tiramisu">
+        <h4>Classic Tiramisu</h4>
+        <p>£3.90</p>
+      </div>
+      <div class="dessert-card">
+        <img src="https://cdn.pixabay.com/photo/2020/11/23/20/11/croissant-5771236_960_720.jpg" alt="Croissant">
+        <h4>Chocolate Croissant</h4>
+        <p>£2.50</p>
+      </div>
+      <div class="dessert-card">
+        <img src="https://cdn.pixabay.com/photo/2018/04/07/21/33/donut-3290422_960_720.jpg" alt="Donut">
+        <h4>Glazed Donut</h4>
+        <p>£1.80</p>
+      </div>
+    </div>
+  </div>
 
   <footer>
-    &copy; 2025 Fabian Bakery & Pizza | All rights reserved
+    <p>&copy; 2025 Fabian Bakery & Pizza | All rights reserved</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=61576720432845" target="_blank">Facebook</a> |
+      <a href="https://www.instagram.com/fabian.bakery.pizza/" target="_blank">Instagram</a>
+    </div>
   </footer>
 </body>
 </html>
